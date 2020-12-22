@@ -31,6 +31,7 @@
 
 @media only screen and (max-width: 650px) {
   .form {
+    width: 75vw;
     height: 65vh;
   }
 
