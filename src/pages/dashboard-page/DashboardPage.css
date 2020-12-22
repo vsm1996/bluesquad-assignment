@@ -1,0 +1,34 @@
+.btn-logout {
+  color: rgb(71, 167, 208);
+  text-decoration: none;
+}
+
+.dashboard {
+  padding: 1.5rem;
+  background-color: rgb(243, 243, 243);
+}
+
+.dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard__table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.dashboard__chart {
+  box-shadow: 10px 5px 5px lightgrey;
+  background-color: #fff;
+}
+
+.dashboard__log {
+  box-shadow: 10px 5px 5px lightgrey;
+  background-color: #fff;
+  overflow-x: scroll;
+  margin: 2rem 0;
+  padding: 1rem;
+}

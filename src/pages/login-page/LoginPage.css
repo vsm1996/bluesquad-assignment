@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    to right top,
+    rgb(65, 160, 204),
+    rgb(78, 98, 216)
+  );
+}

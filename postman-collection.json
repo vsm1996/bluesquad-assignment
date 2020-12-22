@@ -1,0 +1,166 @@
+{
+    "info": {
+        "_postman_id": "9fcdbc34-95e4-4088-8a42-d7d5f3340443",
+        "name": "Blue Squad Coding Challenge API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authenticate User",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user\": \"email or username\",\n    \"password\": \"\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{host}}/auth",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "path": [
+                        "auth"
+                    ]
+                },
+                "description": "**Description**: Authenticates a user with the credentials provided\n\n**Request Body Fields**:\n- `user` -> email or username\n  - **Required**\n- `password` -> user's password\n  - **Required**\n- Example:\n```json\n{\n    \"user\": \"moe@bluesquad.co\",\n    \"password\": \"notmypassword\"\n}\n```\n\n**Response Body Fields**:\n- `jwt` -> a json web token that the user can provide with requests that require authorization\n- `user` -> the authenticated user\n- Example:\n```json\n{\n    \"jwt\": \"<redacted>\",\n    \"user\": {\n        \"role\": \"internal\",\n        \"_id\": \"5fcb32bcdce9720006c1fc34\",\n        \"first_name\": \"Moe\",\n        \"last_name\": \"Jangda\",\n        \"email\": \"moe@bluesquad.co\",\n        \"date_created\": \"2020-12-05T07:11:56.287Z\",\n        \"date_updated\": \"2020-12-05T07:11:56.287Z\",\n        \"id\": \"5fcb32bcdce9720006c1fc34\"\n    }\n}\n```"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Missions",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://mock-api.bluesquad.co/missions",
+                    "protocol": "https",
+                    "host": [
+                        "mock-api",
+                        "bluesquad",
+                        "co"
+                    ],
+                    "path": [
+                        "missions"
+                    ]
+                },
+                "description": "**Description**: Returns a page of missions\n\n**Query Params**:\n- `page` -> the page to return\n  - default: `1`\n- `limit` -> the number of results to return\n  - default: `10`\n  - max: `50`\n\n**Example Response**:\n```json\n{\n    \"num_found\": 46,\n    \"data\": [\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc37\",\n            \"mission_type\": \"education\",\n            \"start_date\": \"2019-11-06T21:53:26.134Z\",\n            \"title\": \"Confirm your voter registration\",\n            \"date_created\": \"2020-12-05T07:11:56.493Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.493Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc38\",\n            \"start_date\": \"2019-11-07T19:46:44.932Z\",\n            \"title\": \"Invite your friends to our launch party\",\n            \"mission_type\": \"text_sharing\",\n            \"end_date\": \"2019-11-13T22:00:00.000Z\",\n            \"date_created\": \"2020-12-05T07:11:56.506Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.506Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc39\",\n            \"mission_type\": \"education\",\n            \"start_date\": \"2019-11-06T21:53:26.131Z\",\n            \"title\": \"Welcome to Blue Squad!\",\n            \"date_created\": \"2020-12-05T07:11:56.508Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.508Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc3a\",\n            \"mission_type\": \"text_sharing\",\n            \"start_date\": \"2019-11-06T21:53:26.136Z\",\n            \"title\": \"Check your friends' voter registration\",\n            \"end_date\": \"2020-02-13T01:34:55.352Z\",\n            \"date_created\": \"2020-12-05T07:11:56.510Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.510Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc3b\",\n            \"start_date\": \"2019-11-07T19:43:08.561Z\",\n            \"title\": \"Tell your friends about our launch event!\",\n            \"mission_type\": \"email_sharing\",\n            \"end_date\": \"2019-11-20T22:00:00.000Z\",\n            \"date_created\": \"2020-12-05T07:11:56.511Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.511Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc3c\",\n            \"mission_type\": \"text_sharing\",\n            \"start_date\": \"2019-11-06T21:53:26.128Z\",\n            \"title\": \"Build your community\",\n            \"date_created\": \"2020-12-05T07:11:56.513Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.513Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc3d\",\n            \"start_date\": \"2019-11-12T22:49:14.213Z\",\n            \"title\": \"How Blue Squad protects your data\",\n            \"mission_type\": \"education\",\n            \"date_created\": \"2020-12-05T07:11:56.515Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.515Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc3e\",\n            \"start_date\": \"2019-11-13T01:01:08.134Z\",\n            \"title\": \"Invite your friends to join Blue Squad\",\n            \"mission_type\": \"text_sharing\",\n            \"end_date\": \"2020-02-12T17:00:29.188Z\",\n            \"date_created\": \"2020-12-05T07:11:56.517Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.517Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc3f\",\n            \"start_date\": \"2019-11-13T01:09:22.503Z\",\n            \"title\": \"Learn about ActBlue\",\n            \"mission_type\": \"education\",\n            \"end_date\": \"2020-11-04T06:00:00.000Z\",\n            \"date_created\": \"2020-12-05T07:11:56.519Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.519Z\"\n        },\n        {\n            \"_id\": \"5fcb32bcdce9720006c1fc40\",\n            \"start_date\": \"2019-11-13T01:33:22.428Z\",\n            \"title\": \"Grassroots money for politics\",\n            \"mission_type\": \"education\",\n            \"end_date\": \"2020-09-01T05:00:00.000Z\",\n            \"date_created\": \"2020-12-05T07:11:56.521Z\",\n            \"date_updated\": \"2020-12-05T07:11:56.521Z\"\n        }\n    ]\n}\n```"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Mission Stats",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{host}}/missions/{{mission_id}}/stats",
+                    "host": [
+                        "{{host}}"
+                    ],
+                    "path": [
+                        "missions",
+                        "{{mission_id}}",
+                        "stats"
+                    ]
+                },
+                "description": "**Description**: Returns stats for a given mission\n\n**Example Response Body**:\n```json\n{\n    \"num_started\": 8321,\n    \"num_completed\": 2100\n}\n```"
+            },
+            "response": []
+        },
+        {
+            "name": "Mission Types Time Series Data",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_token}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://mock-api.bluesquad.co/time-series/missions/{{mission_type}}/{{metric_name}}",
+                    "protocol": "https",
+                    "host": [
+                        "mock-api",
+                        "bluesquad",
+                        "co"
+                    ],
+                    "path": [
+                        "time-series",
+                        "missions",
+                        "{{mission_type}}",
+                        "{{metric_name}}"
+                    ]
+                },
+                "description": "Query Params: \n\n* `step` [optional] → the width of each data point i.e. 1 minute, 3 minutes, 1 day, 2 weeks. The biggest unit of time that can be used is week.\n** Default: 1 day\n\n* `range` [optional] → the length of the time series i.e. i.e. 1 day, 3 days, 2 weeks, 1 month, 2 years\n** Default: 1 week\n\nAvailable mission_types:\n- `all` → general mission performance\n- `education` → for the education mission chart\n- `email_sharing` → for email sharing mission chart\n- `text_sharing` → for text sharing mission chart\n\navailable metric_names:\n- `start_mission` → supporter opens\n- `complete_mission` → supporter completions\n\nResponse Body Example:\n```json\n{\n    \"data\": [\n        {\n            \"time\": \"2019-12-09T00:00:00.000Z\",\n            \"value\": 32\n        },\n        {\n            \"time\": \"2019-12-10T00:00:00.000Z\",\n            \"value\": 0\n        },\n        {\n            \"time\": \"2019-12-11T00:00:00.000Z\",\n            \"value\": 45\n        },\n        {\n            \"time\": \"2019-12-12T00:00:00.000Z\",\n            \"value\": 520\n        },\n        {\n            \"time\": \"2019-12-13T00:00:00.000Z\",\n            \"value\": 1\n        }\n    ]\n}\n```"
+            },
+            "response": []
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "985d7bb4-4146-4454-9436-644046df5d29",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "b526b41f-9bfe-4a56-a015-1f3599e52a68",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "d3696b78-333f-4fc4-bed4-f6378de59707",
+            "key": "auth_token",
+            "value": ""
+        },
+        {
+            "id": "d7694a0e-5e46-4a4b-8b35-cae1d690bd5c",
+            "key": "host",
+            "value": "https://mock-api.bluesquad.co"
+        }
+    ],
+    "protocolProfileBehavior": {}
+}

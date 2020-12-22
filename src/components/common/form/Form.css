@@ -1,0 +1,45 @@
+.form-container {
+}
+
+.form {
+  background-color: #fff;
+  width: 50vw;
+  height: 80vh;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bluesquad-logo {
+  width: 50%;
+  height: auto;
+  margin-bottom: 3rem;
+}
+
+.error {
+  color: rgb(202, 0, 0);
+  margin: 1rem;
+}
+
+.terms {
+  margin: 4rem 0;
+  color: grey;
+}
+
+@media only screen and (max-width: 650px) {
+  .form {
+    height: 65vh;
+  }
+
+  .bluesquad-logo {
+    width: 70%;
+    margin-bottom: 2rem;
+  }
+  .terms {
+    margin: 1rem 0;
+    color: grey;
+  }
+}

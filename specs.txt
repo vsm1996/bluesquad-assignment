@@ -1,0 +1,24 @@
+login page: 
+
+bg gradient: 65, 159, 204 to 78, 98, 188
+button: 89, 122, 208
+
+inputs - border bottom: 224,231,249
+font color: grey
+
+dashboard: 
+
+logout button color: 71	167	208	 ---
+
+line chart:  ----
+  blue - 52,	128,	162	
+  purple - 84, 13, 202
+
+log table:
+
+  type/name color: 28	45	124	--
+  stats colors: ---
+    started - 106	223	54
+    completed - 68	163	205	
+    rejected - 244	151	154		
+  all else: black --

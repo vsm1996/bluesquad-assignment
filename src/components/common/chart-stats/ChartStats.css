@@ -1,0 +1,11 @@
+.started {
+  color: rgb(106, 223, 54);
+}
+
+.completed {
+  color: rgb(85, 178, 213);
+}
+
+.rejected {
+  color: rgb(244, 151, 154);
+}

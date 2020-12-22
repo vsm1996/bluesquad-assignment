@@ -1,0 +1,16 @@
+.login-btn {
+  padding: 1rem;
+  width: 40%;
+  color: white;
+  background-color: rgb(89, 122, 208);
+  border-radius: 2px;
+  border: none;
+  margin: 1.5rem 0;
+}
+
+@media only screen and (max-width: 650px) {
+  .login-btn {
+    margin: 1rem 0;
+    width: 50%;
+  }
+}
