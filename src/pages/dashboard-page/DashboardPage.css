@@ -25,6 +25,10 @@
   background-color: #fff;
 }
 
+.dashboard__chart h2 {
+  padding: 1rem;
+}
+
 .dashboard__log {
   box-shadow: 10px 5px 5px lightgrey;
   background-color: #fff;

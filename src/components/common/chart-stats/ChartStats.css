@@ -1,5 +1,6 @@
 .started {
   color: rgb(106, 223, 54);
+  /* padding: 0 0 0 10rem; */
 }
 
 .completed {
@@ -8,4 +9,5 @@
 
 .rejected {
   color: rgb(244, 151, 154);
+  /* padding: 0 10rem 0 0; */
 }
